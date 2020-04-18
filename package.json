@@ -1,0 +1,86 @@
+{
+  "type": "module",
+  "name": "svelte-doc-generator",
+  "version": "1.2.0",
+  "description": "",
+  "main": "./build/interface/index.js",
+  "scripts": {
+    "build": "npm run system:build && npm run interface:build && npm run bootstrap:build",
+    "check": "./node_modules/.bin/tsc --noEmit",
+    "check:watch": "npm run check -- --watch",
+    "interface:build": "rm -rf ./build/interface && node -r esm build.js",
+    "system:watch": "./node_modules/.bin/tsc -w",
+    "system:build": "rm -rf ./build/system && ./node_modules/.bin/tsc",
+    "bootstrap:build": "rm -rf ./build/vendors/bootstrap && ./node_modules/.bin/gulp compile-bootstrap"
+  },
+  "pre-commit": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:gustarus/svelte-doc-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gustarus/svelte-doc-generator/issues"
+  },
+  "homepage": "https://github.com/gustarus/svelte-doc-generator",
+  "bin": {
+    "svelte-doc-generator": "./build/system/cli.js"
+  },
+  "author": "Pavel Kondratenko <iam@kondratenko.me>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/commander": "^2.12.2",
+    "@types/dom-parser": "^0.1.0",
+    "@types/estree": "0.0.42",
+    "@types/fs-extra": "^8.0.1",
+    "@types/glob-watcher": "^5.0.0",
+    "@types/md5": "^2.1.33",
+    "@types/node": "^13.5.0",
+    "@types/yargs": "^15.0.1",
+    "autoprefixer": "^9.7.4",
+    "babel-runtime": "^6.26.0",
+    "bootstrap": "^4.4.1",
+    "colors": "^1.4.0",
+    "commander": "^4.1.0",
+    "comment-parser": "^0.7.2",
+    "cssnano": "^4.1.10",
+    "deepmerge": "^4.2.2",
+    "dom-parser": "^0.1.6",
+    "esm": "^3.2.25",
+    "estree-walker": "^1.0.1",
+    "fs": "0.0.1-security",
+    "fs-extra": "^8.1.0",
+    "glob": "^7.1.6",
+    "glob-watcher": "^5.0.3",
+    "gulp": "^4.0.2",
+    "gulp-insert": "^0.5.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "magic-string": "^0.25.6",
+    "moment": "^2.24.0",
+    "path": "^0.12.7",
+    "periscopic": "^2.0.2",
+    "postcss": "^7.0.18",
+    "postcss-automath": "^1.0.1",
+    "postcss-color-mod-function": "^3.0.3",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-each": "^0.10.0",
+    "postcss-for": "^2.1.1",
+    "postcss-import": "^12.0.1",
+    "postcss-mixins": "^6.2.2",
+    "postcss-namespace": "^1.1.1",
+    "postcss-nested": "^4.1.2",
+    "postcss-preset-env": "^6.6.0",
+    "postcss-selector-namespace": "^3.0.1",
+    "postcss-simple-vars": "^5.0.2",
+    "svelte": "^3.20.1",
+    "svelte-routing": "^1.4.0",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "highlight.js": "^9.18.0",
+    "markdown-it": "^10.0.0"
+  }
+}

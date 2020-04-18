@@ -1,0 +1,9 @@
+.DS_Store
+.idea
+.git
+node_modules
+build
+package-lock.json
+
+# ignore compiled library
+/site/library/
